@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const qs = require('qs');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,21 +22,20 @@ app.post('/', async (req, res) => {
     return res.status(400).json({ error: 'Missing action' });
   }
 
-  // Log the outgoing request
-  console.log('🔍 Forwarding to DHRU with:');
-  console.log({
+  const payload = {
     username: DHRU_USERNAME,
     apiaccesskey: DHRU_API_KEY,
     action: action,
     requestformat: 'JSON'
-  });
+  };
+
+  console.log('🔍 Sending form-encoded payload to DHRU:', payload);
 
   try {
-    const response = await axios.post(DHRU_ENDPOINT, {
-      username: DHRU_USERNAME,
-      apiaccesskey: DHRU_API_KEY,
-      action: action,
-      requestformat: 'JSON'
+    const response = await axios.post(DHRU_ENDPOINT, qs.stringify(payload), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     });
     res.json(response.data);
   } catch (err) {
