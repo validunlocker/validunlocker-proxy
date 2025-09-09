@@ -1,6 +1,14 @@
-"dependencies": {
-  "express": "^4.18.2",
-  "axios": "^1.6.0",
-  "qs": "^6.11.0",
-  "express-rate-limit": "^6.7.0"
+{
+  "name": "validunlocker-proxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "qs": "^6.11.0",
+    "express-rate-limit": "^6.7.0"
+  }
 }
