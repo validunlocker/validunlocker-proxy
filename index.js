@@ -31,13 +31,11 @@ app.post('/', async (req, res) => {
   });
 
   try {
-    const response = await axios.post(DHRU_ENDPOINT, null, {
-      params: {
-        username: DHRU_USERNAME,
-        apiaccesskey: DHRU_API_KEY,
-        action: action,
-        requestformat: 'JSON'
-      }
+    const response = await axios.post(DHRU_ENDPOINT, {
+      username: DHRU_USERNAME,
+      apiaccesskey: DHRU_API_KEY,
+      action: action,
+      requestformat: 'JSON'
     });
     res.json(response.data);
   } catch (err) {
