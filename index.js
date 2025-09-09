@@ -18,7 +18,7 @@ app.use(limiter);
 
 // Environment variables
 const AUTH_TOKEN = process.env.AUTH_TOKEN || 'validunlocker2025';
-const DHRU_ENDPOINT = process.env.DHRU_ENDPOINT || 'https://www.validunlocker.com/api/index.php';
+const DHRU_ENDPOINT = process.env.DHRU_ENDPOINT || 'https://www.habeshaunlocker.com/api/index.php';
 const DHRU_USERNAME = process.env.DHRU_USERNAME || 'supplier_user';
 const DHRU_API_KEY = process.env.DHRU_API_KEY || 'supplier_api_key';
 
